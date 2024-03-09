@@ -5,10 +5,10 @@ from news import *
 from display import *
 import json
 
-lat = "47.2"
-lon = "-1.5"
-api_key_weather = ""
-api_key_news = ""
+lat = "45.294518"
+lon = "-75.8638965"
+api_key_weather = "1b7058cba1e4678c897c28ba7ace8155"  
+api_key_news = "ba97aa8b051d43bc8ab1ac222dfd17f0"
 debug = 0
 if debug ==0:
     import epd7in5b_V2

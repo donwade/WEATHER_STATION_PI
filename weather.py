@@ -7,8 +7,8 @@ import locale
 locale.setlocale(locale.LC_TIME, '')
 
 
-# lat = "48.8110548"
-# lon = "2.3"
+lat = "45.2949518"
+lon = "-75.8638965"
 
 class Weather:
     def __init__(self, latitude, longitude, api_id):
