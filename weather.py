@@ -3,6 +3,7 @@
 import time
 import requests
 import locale
+import json
 
 locale.setlocale(locale.LC_TIME, '')
 
@@ -18,7 +19,13 @@ class Weather:
         self.prevision = [0, [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]]
         self.data = requests.get(
             f"https://api.openweathermap.org/data/2.5/onecall?lat={self.latitude}&lon={self.longitude}&lang=fr&appid={self.api_key}").json()
-        print(self.data)
+
+        print(json.dumps(self.data, indent=4))
+        #json_object = json.loads(self.data)
+        #json_formatted_str = json.dumps(json_object, indent=2)
+        #print(json_formatted_str)
+
+
         self.prevision[0] = self.data["daily"][0]["dt"]
         self.prevision[1][6] = [self.data["daily"][0]["pressure"],
                                 round(self.data["daily"][0]["temp"]["day"] - 273.15, 0)]
@@ -27,6 +34,8 @@ class Weather:
     def update(self):
         self.data = requests.get(
             f"https://api.openweathermap.org/data/2.5/onecall?lat={self.latitude}&lon={self.longitude}&lang=fr&appid={self.api_key}").json()
+        print("--------------------------------------------------------------- ")
+        print(json.dumps(self.data, indent=4))
         return self.data
 
     def current_time(self):
@@ -67,12 +76,10 @@ class Weather:
             direction = "NO"
         else:
             direction = "N/A"
-        return "{:.0f}".format(self.data["current"]["wind_speed"] * 3.6) + "km/h", direction
+        return "{:.0f}".format(self.data["current"]["wind_speed"] ) + "km/h", direction
 
     def current_weather(self):
         description = self.data["current"]["weather"][0]["id"]
-        print("ssssssssssssssssssssssssssssssssss")
-        print(description)
         return description
 
     def rain_next_hour(self):
