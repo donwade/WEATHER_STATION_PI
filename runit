@@ -1,0 +1,3 @@
+#!/bin/bash
+set -x
+sudo --preserve-env=OPENWEATHER_APIKEY,NEWS_APIKEY bash -c "python $PWD/Assistant_main.py"
