@@ -12,4 +12,7 @@ lon=-75.6972
 
 lang=en
 echo "https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lon&lang=$lang&appid=$OPENWEATHER_APIKEY"
+echo
+# french echo "https://newsapi.org/v2/top-headlines?sources=google-news-fr&apiKey=$NEWS_APIKEY"
+echo "https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=$NEWS_APIKEY"
 
