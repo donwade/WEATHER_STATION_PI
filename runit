@@ -1,3 +1,4 @@
 #!/bin/bash
-set -x
+set -ex
+sudo rm -rf _*
 sudo --preserve-env=OPENWEATHER_APIKEY,NEWS_APIKEY bash -c "python $PWD/Assistant_main.py"

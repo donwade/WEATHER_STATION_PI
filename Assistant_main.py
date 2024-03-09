@@ -4,11 +4,24 @@ from weather import *
 from news import *
 from display import *
 import json
+import os
 
+print('My name is', os.getlogin(), 'and I am', 42)
+
+# toronto
+#lat = "43.6532" 
+#lon = "-79.3832"
+
+# ottawa
 lat = "45.294518"
 lon = "-75.8638965"
-api_key_weather = "1b7058cba1e4678c897c28ba7ace8155"  
-api_key_news = "ba97aa8b051d43bc8ab1ac222dfd17f0"
+
+api_key_weather = str(os.getenv('OPENWEATHER_APIKEY'))
+print ("weather = " + api_key_weather)
+
+api_key_news = str(os.getenv('NEWS_APIKEY'))
+print ("api_key_news = " + api_key_news)
+
 debug = 0
 if debug ==0:
     import epd7in5b_V2

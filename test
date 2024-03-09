@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#TORONTO
+lat=43.6532
+lon=-79.3832i
+
+#OTTAWA
+lat=45.4215
+lon=-75.6972
+
+# HEY I GOT THE DECREE SYMBOL 45.4215° N, 75.6972° W
+
+lang=en
+echo "https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lon&lang=$lang&appid=$OPENWEATHER_APIKEY"
+

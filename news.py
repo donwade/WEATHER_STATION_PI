@@ -2,6 +2,7 @@
 
 import requests
 import textwrap
+import os
 
 class News:
     def __init__(self):
