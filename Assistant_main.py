@@ -6,8 +6,6 @@ from display import *
 import json
 import os
 
-print('My name is', os.getlogin(), 'and I am', 42)
-
 # toronto
 #lat = "43.6532" 
 #lon = "-79.3832"
@@ -45,21 +43,23 @@ def main():
     display.draw_black.line((5, 350, 795, 350), fill=0, width=1)  # HORIZONTAL SEPARATION
 
     # UPDATED AT
-    display.draw_black.text((10, 8), "Mis à jour le " + weather.current_time(), fill=0, font=font8)
+    display.draw_black.text((10, 8), "Last update time " + weather.current_time(), fill=0, font=font12)
 
     ###################################################################################################################
     # CURRENT WEATHER
     display.draw_icon(20, 55, "r", 75, 75,
                       weather.weather_description(weather.current_weather())[0])  # CURRENT WEATHER ICON
-    display.draw_black.text((120, 15), weather.current_temp(), fill=0, font=font48)  # CURRENT TEMP
-    display.draw_black.text((230, 15), weather.current_hum(), fill=0, font=font48)  # CURRENT HUM
-    display.draw_black.text((245, 65), "HUMIDITY", fill=0, font=font12)  # LABEL "HUMIDITY"
-    display.draw_black.text((120, 75), weather.current_wind()[0] + " " + weather.current_wind()[1], fill=0, font=font24)
+
+    display.draw_black.text((120, 23), weather.current_temp(), fill=0, font=font48)  # CURRENT TEMP
+    display.draw_black.text((230, 23), weather.current_hum(), fill=0, font=font48)  # CURRENT HUM
+
+    display.draw_black.text((245, 68), "HUMIDITY", fill=0, font=font12)  # LABEL "HUMIDITY"
+    display.draw_black.text((120, 68+6), weather.current_wind()[0] + " " + weather.current_wind()[1], fill=0, font=font24)
 
     display.draw_icon(120, 105, "b", 35, 35, "sunrise")  # SUNRISE ICON
-    display.draw_black.text((160, 110), weather.current_sunrise(), fill=0, font=font16)  # SUNRISE TIME
-    display.draw_icon(220, 105, "b", 35, 35, "sunset")  # SUNSET ICON
-    display.draw_black.text((260, 110), weather.current_sunset(), fill=0, font=font16)  # SUNSET TIME
+    display.draw_black.text((160, 108), weather.current_sunrise(), fill=0, font=font24)  # SUNRISE TIME
+    display.draw_icon(230, 105, "b", 35, 35, "sunset")  # SUNSET ICON
+    display.draw_black.text((265, 108), weather.current_sunset(), fill=0, font=font24)  # SUNSET TIME
 
     ###################################################################################################################
     # NEXT HOUR RAIN
