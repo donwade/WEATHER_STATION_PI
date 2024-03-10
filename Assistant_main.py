@@ -112,48 +112,58 @@ def main():
     ###################################################################################################################
     # DAILY FORECAST
     # +24h
+    vert = 50
     display.draw_black.text((360, 30), weather.daily_forecast()["+24h"]["date"], fill=0, font=font16)  # +24H DAY
     display.draw_icon(400, 50, "r", 50, 50,
                       weather.weather_description(weather.daily_forecast()["+24h"]["id"])[0])  # +24H WEATHER ICON
-    display.draw_black.text((465, 50), weather.daily_forecast()["+24h"]["min"], fill=0, font=font14)
-    display.draw_black.text((498, 50), "min", fill=0, font=font14)  # +24H MIN TEMPERATURE
-    display.draw_black.text((465, 65), weather.daily_forecast()["+24h"]["max"], fill=0, font=font14)
-    display.draw_black.text((498, 65), "max", fill=0, font=font14)  # +24H MAX TEMPERATURE
-    display.draw_black.text((465, 80), weather.daily_forecast()["+24h"]["pop"], fill=0, font=font14)
-    display.draw_black.text((498, 80), "rain", fill=0, font=font14)  # +24H RAIN PROBABILITY
+    display.draw_black.text((465, vert), weather.daily_forecast()["+24h"]["min"], fill=0, font=font16)
+    display.draw_black.text((498, vert), "min", fill=0, font=font16)  # +24H MIN TEMPERATURE
+
+    display.draw_black.text((465, vert+16), weather.daily_forecast()["+24h"]["max"], fill=0, font=font16)
+    display.draw_black.text((498, vert+16), "max", fill=0, font=font16)  # +24H MAX TEMPERATURE
+
+    display.draw_black.text((465, vert+32), weather.daily_forecast()["+24h"]["pop"], fill=0, font=font16)
+    display.draw_black.text((498, vert+32), "rain", fill=0, font=font16)  # +24H RAIN PROBABILITY
 
     # +48h
+    vert = 125
     display.draw_black.text((360, 105), weather.daily_forecast()["+48h"]["date"], fill=0, font=font16)  # +48H DAY
     display.draw_icon(400, 125, "r", 50, 50,
                       weather.weather_description(weather.daily_forecast()["+48h"]["id"])[0])  # +48H WEATHER ICON
-    display.draw_black.text((465, 125), weather.daily_forecast()["+48h"]["min"], fill=0, font=font14)
-    display.draw_black.text((498, 125), "min", fill=0, font=font14)  # +48H MIN TEMPERATURE
-    display.draw_black.text((465, 140), weather.daily_forecast()["+48h"]["max"], fill=0, font=font14)
-    display.draw_black.text((498, 140), "max", fill=0, font=font14)  # +48H MAX TEMPERATURE
-    display.draw_black.text((465, 155), weather.daily_forecast()["+48h"]["pop"], fill=0, font=font14)
-    display.draw_black.text((498, 155), "rain", fill=0, font=font14)  # +48H RAIN PROBABILITY
+    display.draw_black.text((465, vert), weather.daily_forecast()["+48h"]["min"], fill=0, font=font14)
+    display.draw_black.text((498, vert), "min", fill=0, font=font16)  # +48H MIN TEMPERATURE
+
+    display.draw_black.text((465, vert+16), weather.daily_forecast()["+48h"]["max"], fill=0, font=font14)
+    display.draw_black.text((498, vert+16), "max", fill=0, font=font16)  # +48H MAX TEMPERATURE
+    
+    display.draw_black.text((465, vert+32), weather.daily_forecast()["+48h"]["pop"], fill=0, font=font14)
+    display.draw_black.text((498, vert+32), "rain", fill=0, font=font16)  # +48H RAIN PROBABILITY
 
     # +72h
+    vert = 200
     display.draw_black.text((360, 180), weather.daily_forecast()["+72h"]["date"], fill=0, font=font16)  # +72H DAY
     display.draw_icon(400, 200, "r", 50, 50,
                       weather.weather_description(weather.daily_forecast()["+72h"]["id"])[0])  # +72H WEATHER ICON
-    display.draw_black.text((465, 200), weather.daily_forecast()["+72h"]["min"], fill=0, font=font14)
-    display.draw_black.text((498, 200), "min", fill=0, font=font14)  # +72H MIN TEMPERATURE
-    display.draw_black.text((465, 215), weather.daily_forecast()["+72h"]["max"], fill=0, font=font14)
-    display.draw_black.text((498, 215), "max", fill=0, font=font14)  # +72H MAX TEMPERATURE
-    display.draw_black.text((465, 230), weather.daily_forecast()["+72h"]["pop"], fill=0, font=font14)
-    display.draw_black.text((498, 230), "rain", fill=0, font=font14)  # +72H RAIN PROBABILITY
+    display.draw_black.text((465, vert), weather.daily_forecast()["+72h"]["min"], fill=0, font=font14)
+    display.draw_black.text((498, vert), "min", fill=0, font=font16)  # +72H MIN TEMPERATURE
+    display.draw_black.text((465, vert+16), weather.daily_forecast()["+72h"]["max"], fill=0, font=font14)
+    display.draw_black.text((498, vert+16), "max", fill=0, font=font16)  # +72H MAX TEMPERATURE
+    display.draw_black.text((465, vert+32), weather.daily_forecast()["+72h"]["pop"], fill=0, font=font14)
+    display.draw_black.text((498, vert+32), "rain", fill=0, font=font16)  # +72H RAIN PROBABILITY
 
     # +96h
+    vert = 275
     display.draw_black.text((360, 255), weather.daily_forecast()["+96h"]["date"], fill=0, font=font16)  # +96H DAY
     display.draw_icon(400, 275, "r", 50, 50,
                       weather.weather_description(weather.daily_forecast()["+96h"]["id"])[0])  # +96H WEATHER ICON
-    display.draw_black.text((465, 275), weather.daily_forecast()["+96h"]["min"], fill=0, font=font14)
-    display.draw_black.text((498, 275), "min", fill=0, font=font14)  # +96H MIN TEMPERATURE
-    display.draw_black.text((465, 290), weather.daily_forecast()["+96h"]["max"], fill=0, font=font14)
-    display.draw_black.text((498, 290), "max", fill=0, font=font14)  # +96H MAX TEMPERATURE
-    display.draw_black.text((465, 305), weather.daily_forecast()["+96h"]["pop"], fill=0, font=font14)
-    display.draw_black.text((498, 305), "rain", fill=0, font=font14)  # +96H RAIN PROBABILITY
+    display.draw_black.text((465, vert), weather.daily_forecast()["+96h"]["min"], fill=0, font=font14)
+    display.draw_black.text((498, vert), "min", fill=0, font=font16)  # +96H MIN TEMPERATURE
+   
+    display.draw_black.text((465, vert+16), weather.daily_forecast()["+96h"]["max"], fill=0, font=font14)
+    display.draw_black.text((498, vert+16), "max", fill=0, font=font16)  # +96H MAX TEMPERATURE
+
+    display.draw_black.text((465, vert+32), weather.daily_forecast()["+96h"]["pop"], fill=0, font=font14)
+    display.draw_black.text((498, vert+32), "rain", fill=0, font=font16)  # +96H RAIN PROBABILITY
 
     ###################################################################################################################
     # GRAPHS
