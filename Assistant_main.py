@@ -67,7 +67,7 @@ def main():
         data_rain = weather.rain_next_hour()
 
         # FRAME
-        display.draw_black.text((20, 150), "Hourly Rainfall @ " + time.strftime("%H:%M", time.localtime()), fill=0,
+        display.draw_black.text((18, 147), "Hourly Rainfall @ " + time.strftime("%H:%M", time.localtime()), fill=0,
                                 font=font24)  # NEXT HOUR RAIN LABEL
         display.draw_black.rectangle((20, 175, 320, 195), fill=255, outline=0, width=1)  # Red rectangle = rain
 
@@ -86,26 +86,28 @@ def main():
     display.draw_black.text((150, 227), "+6h", fill=0, font=font16)  # +6h LABEL
     display.draw_black.text((270, 227), "+12h", fill=0, font=font16)  # +12h LABEL
     # 3H
+    vert = 295
     display.draw_icon(25, 245, "r", 50, 50,
                       weather.weather_description(weather.hourly_forecast()["+3h"]["id"])[0])  # +3H WEATHER ICON
-    display.draw_black.text((25, 295), weather.weather_description(weather.hourly_forecast()["+3h"]["id"])[1], fill=0,
-                            font=font12)  # WEATHER DESCRIPTION +3h
-    display.draw_black.text((35, 307), weather.hourly_forecast()["+3h"]["temp"], fill=0, font=font16)  # TEMP +3H
-    display.draw_black.text((35, 323), weather.hourly_forecast()["+3h"]["pop"], fill=0, font=font16)  # POP +3H
+    display.draw_black.text((30, vert), weather.weather_description(weather.hourly_forecast()["+3h"]["id"])[1], fill=0,
+                            font=font16)  # WEATHER DESCRIPTION +3h
+    display.draw_black.text((35, vert+16), weather.hourly_forecast()["+3h"]["temp"], fill=0, font=font16)  # TEMP +3H
+    display.draw_black.text((35, vert+30), weather.hourly_forecast()["+3h"]["pop"], fill=0, font=font16)  # POP +3H
+
     # +6h
     display.draw_icon(145, 245, "r", 50, 50,
                       weather.weather_description(weather.hourly_forecast()["+6h"]["id"])[0])  # +6H WEATHER ICON
-    display.draw_black.text((145, 295), weather.weather_description(weather.hourly_forecast()["+6h"]["id"])[1], fill=0,
-                            font=font12)  # WEATHER DESCRIPTION +6h
-    display.draw_black.text((155, 307), weather.hourly_forecast()["+6h"]["temp"], fill=0, font=font16)  # TEMP +6H
-    display.draw_black.text((155, 323), weather.hourly_forecast()["+6h"]["pop"], fill=0, font=font16)  # POP +6H
+    display.draw_black.text((145, vert), weather.weather_description(weather.hourly_forecast()["+6h"]["id"])[1], fill=0,
+                            font=font16)  # WEATHER DESCRIPTION +6h
+    display.draw_black.text((155, vert+16), weather.hourly_forecast()["+6h"]["temp"], fill=0, font=font16)  # TEMP +6H
+    display.draw_black.text((155, vert+30), weather.hourly_forecast()["+6h"]["pop"], fill=0, font=font16)  # POP +6H
     # +12h
     display.draw_icon(265, 245, "r", 50, 50,
                       weather.weather_description(weather.hourly_forecast()["+12h"]["id"])[0])  # +12H WEATHER ICON
-    display.draw_black.text((265, 295), weather.weather_description(weather.hourly_forecast()["+12h"]["id"])[1], fill=0,
-                            font=font12)  # WEATHER DESCRIPTION +12h
-    display.draw_black.text((275, 307), weather.hourly_forecast()["+12h"]["temp"], fill=0, font=font16)  # TEMP +12H
-    display.draw_black.text((275, 323), weather.hourly_forecast()["+12h"]["pop"], fill=0, font=font16)  # POP +12H
+    display.draw_black.text((265, vert), weather.weather_description(weather.hourly_forecast()["+12h"]["id"])[1], fill=0,
+                            font=font16)  # WEATHER DESCRIPTION +12h
+    display.draw_black.text((275, vert+16), weather.hourly_forecast()["+12h"]["temp"], fill=0, font=font16)  # TEMP +12H
+    display.draw_black.text((275, vert+30), weather.hourly_forecast()["+12h"]["pop"], fill=0, font=font16)  # POP +12H
 
     ###################################################################################################################
     # DAILY FORECAST
@@ -263,16 +265,20 @@ if __name__ == "__main__":
             current_time = time.strftime("%d/%m/%Y %H:%M:%S", time.localtime())
             print("INITIALIZATION PROBLEM- @" + current_time)
             time.sleep(2)
+
     epd = epd7in5b_V2.EPD()
+
     while True:
         # Defining objects
         current_time = time.strftime("%d/%m/%Y %H:%M", time.localtime())
         print("Begin update @" + current_time)
         print("Creating display")
         display = Display()
+
         # Update values
         weather.update()
         print("Weather Updated")
+
         # pollution.update(lat, lon, api_key_weather)
         news.update(api_key_news)
         print("News Updated")        
@@ -280,11 +286,12 @@ if __name__ == "__main__":
         epd.init()
         epd.Clear()
         main()
+
         print("Going to sleep...")
         epd.init()
         epd.sleep()
+
         print("Sleeping ZZZzzzzZZZzzz")
-        print("Done")
-        print("------------")
-        time.sleep(1800)
+
+        time.sleep(3600 / 4)
 
