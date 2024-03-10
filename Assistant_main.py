@@ -67,8 +67,8 @@ def main():
         data_rain = weather.rain_next_hour()
 
         # FRAME
-        display.draw_black.text((20, 150), "Hourly Rainfall - " + time.strftime("%H:%M", time.localtime()), fill=0,
-                                font=font16)  # NEXT HOUR RAIN LABEL
+        display.draw_black.text((20, 150), "Hourly Rainfall @ " + time.strftime("%H:%M", time.localtime()), fill=0,
+                                font=font24)  # NEXT HOUR RAIN LABEL
         display.draw_black.rectangle((20, 175, 320, 195), fill=255, outline=0, width=1)  # Red rectangle = rain
 
         # LABEL
