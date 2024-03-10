@@ -303,5 +303,5 @@ if __name__ == "__main__":
 
         print("Sleeping ZZZzzzzZZZzzz")
 
-        time.sleep(3600 / 4)
+        time.sleep(3600 / 3)
 
