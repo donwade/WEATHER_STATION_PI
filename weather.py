@@ -69,11 +69,11 @@ class Weather:
         elif 150 <= deg < 210:
             direction = "S"
         elif 210 <= deg < 240:
-            direction = "SO"
+            direction = "SW"
         elif 240 <= deg < 300:
-            direction = "O"
+            direction = "W"
         elif 300 <= deg < 330:
-            direction = "NO"
+            direction = "NW"
         else:
             direction = "N/A"
         return "{:.0f}".format(self.data["current"]["wind_speed"] ) + "km/h", direction
